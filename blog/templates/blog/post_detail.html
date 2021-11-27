@@ -1,0 +1,7 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h2 class='title'>{{ post.title }}</h2>
+    <small>Posted by <a href="{% url 'posts_for_user' post.user %}">{{ post.user }}</a></small>
+    <p>{{ post.body }}</p>
+{% endblock %}

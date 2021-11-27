@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+    <div class='post block py-2 my-4'>
+        <h4 class='subtitle'>{{ post.title }}</h4>
+        <p>{{ post.body}}</p>
+        <a class='btn btn-outline-success' href="{% url 'post_detail' post.id %}">Read More</a>
+    </div>
+    {% endfor %}
+{% endblock %}
