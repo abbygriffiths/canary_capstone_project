@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 
 class Post(models.Model):
+    """A post made by the user to be sent as feedback."""
     title = models.CharField(max_length=250)
     body = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)

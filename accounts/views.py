@@ -1,5 +1,7 @@
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.shortcuts import redirect, render
+
+User = get_user_model()
 
 
 def register(request):
@@ -19,6 +21,12 @@ def register(request):
             last_name=last_name)
         user.save()
         print(user)
-        return redirect('/')
+        return redirect('list_accounts')
     elif request.method == 'GET':
         return render(request, 'accounts/register.html')
+
+
+def list(request):
+    """Show all the users in the database."""
+    users = User.objects.all()
+    return render(request, 'accounts/list.html', {'users': users})
